@@ -1,26 +1,42 @@
 {
-    "name": "MyTube",
-    "version": "1.0.0",
-    "manifest_version": 3,
-    "description": "For Chrome Extention",
-    "options_page": "index.html",
-    "permissions": [
-    
-    ],
-    "icons": {
+  "name": "MyTube",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Revert the 2025-10 YouTube UI update and restore classic controls.",
+  "options_page": "index.html",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "icons": {
+    "19": "img/logo/icon_coffee_19.png",
+    "48": "img/logo/icon_coffee_48.png",
+    "128": "img/logo/icon_coffee_128.png"
+  },
+  "action": {
+    "default_icon": {
       "19": "img/logo/icon_coffee_19.png",
       "48": "img/logo/icon_coffee_48.png",
       "128": "img/logo/icon_coffee_128.png"
     },
-    "action": {
-      "default_icon": {
-        "19": "img/logo/icon_coffee_19.png",
-        "48": "img/logo/icon_coffee_48.png",
-        "128": "img/logo/icon_coffee_128.png"
-      },
-      "default_title": "MyTube"
-    },
-    "background": {
-      "service_worker": "background.js"
+    "default_title": "MyTube",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "selectors.js",
+        "contentScript.js"
+      ],
+      "run_at": "document_idle"
     }
-  }
+  ]
+}

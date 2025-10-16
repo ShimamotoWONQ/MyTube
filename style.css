@@ -2,16 +2,211 @@
     display: none;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #eee;
-    font-family: sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-.content-container-div {
+body {
+    margin: 0;
+    padding: 12px;
+    background: #0f0f0f;
+    color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-width: 680px;
+    width: 720px;
+}
+
+.options-container {
+    width: 100%;
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 24px;
+}
+
+.options-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.options-header p {
+    margin: 8px 0 0;
+    color: #c9c9c9;
+    line-height: 1.5;
+}
+
+.options-section {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 16px 18px;
+}
+
+.options-section h2 {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+}
+
+.options-section-header {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.option-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.option-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.option-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff5252;
+    cursor: pointer;
+}
+
+.options-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.console-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+#refresh-logs,
+#clear-logs {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-size: 0.85rem;
+}
+
+#refresh-logs:hover,
+#clear-logs:hover {
+    background: #ff5252;
+    color: #1e1e1e;
+}
+
+#reset-button {
+    background: transparent;
+    border: 1px solid #ff5252;
+    color: #ff5252;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+#reset-button:hover {
+    background: #ff5252;
+    color: #1e1e1e;
+}
+
+#reset-button:focus-visible,
+#refresh-logs:focus-visible,
+#clear-logs:focus-visible {
+    outline: 2px solid #ff5252;
+    outline-offset: 2px;
+}
+
+#status {
+    flex: 1;
+    color: #9cdcfe;
+    font-size: 0.95rem;
+}
+
+.log-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+}
+
+.log-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    border-left: 3px solid rgba(255, 255, 255, 0.08);
+    padding-left: 10px;
+}
+
+.log-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9cdcfe;
+    font-size: 0.8rem;
+}
+
+.log-message {
+    color: #f5f5f5;
+}
+
+.log-source {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    background: rgba(156, 220, 254, 0.18);
+    padding: 2px 6px;
+    border-radius: 999px;
+}
+
+.log-meta {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    padding: 6px;
+    font-family: ui-monospace, SFMono-Regular, SFMono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #c8c8c8;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.log-empty {
+    color: #8f8f8f;
+    font-style: italic;
+    border-left-color: transparent;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
 }

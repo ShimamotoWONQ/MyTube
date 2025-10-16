@@ -1,16 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>MyTube</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>MyTube 設定</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div class="content-container-div">
-      <div id="header-div">
+    <main class="options-container">
+      <header class="options-header">
         <h1>MyTube</h1>
-        <h5>For Chrome Extention</h5>
-      </div>
-    </div>
+        <p>2025-10のUI変更を旧仕様へ戻すための調整項目を設定します。</p>
+      </header>
+      <section class="options-section" aria-labelledby="visibility-heading">
+        <h2 id="visibility-heading">表示・非表示</h2>
+        <ul class="option-list">
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="hideTopBar" />
+              <span>トップバーを非表示</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="hideGuide" />
+              <span>サイドガイドを非表示</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="hideSecondary" />
+              <span>関連動画(右カラム)を非表示</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="hideComments" />
+              <span>コメント欄を非表示</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="hideChat" />
+              <span>ライブチャットを常に非表示</span>
+            </label>
+          </li>
+        </ul>
+      </section>
+      <section class="options-section" aria-labelledby="controls-heading">
+        <h2 id="controls-heading">プレイヤー</h2>
+        <ul class="option-list">
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="useLegacyControlIcons" />
+              <span>旧仕様のアイコンを使用</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="useIconBackdrop" />
+              <span>アイコンのバックドロップを使用（.ytp-buttonのbackgroundを無効化）</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input type="checkbox" data-config-key="transparentControlBar" />
+              <span>.ytp-chrome-bottom の背景を透明にする</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input
+                type="checkbox"
+                data-config-key="hideFullscreenQuickActions"
+              />
+              <span>.ytp-fullscreen-quick-actions を非表示にする</span>
+            </label>
+          </li>
+          <li>
+            <label class="option-item">
+              <input
+                type="checkbox"
+                data-config-key="disableFullscreenLiveChat"
+              />
+              <span>フルスクリーン時のライブコメントを非表示</span>
+            </label>
+          </li>
+        </ul>
+      </section>
+      <section class="options-section" aria-labelledby="console-heading">
+        <div class="options-section-header">
+          <h2 id="console-heading">実行状況コンソール</h2>
+          <div class="console-buttons">
+            <button id="refresh-logs" type="button" title="最新のログを取得します">
+              更新
+            </button>
+            <button id="clear-logs" type="button" title="ログを削除します">
+              クリア
+            </button>
+          </div>
+        </div>
+        <ul
+          id="log-list"
+          class="log-list"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+        ></ul>
+      </section>
+      <footer class="options-footer">
+        <button id="reset-button" type="button">デフォルトに戻す</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </footer>
+    </main>
+    <script src="options.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
