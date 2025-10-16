@@ -1,5 +1,5 @@
 {
-    "name": "WebExtentionTemplate",
+    "name": "MyTube",
     "version": "1.0.0",
     "manifest_version": 3,
     "description": "For Chrome Extention",
@@ -18,7 +18,7 @@
         "48": "img/logo/icon_coffee_48.png",
         "128": "img/logo/icon_coffee_128.png"
       },
-      "default_title": "WebExtentionTemplate"
+      "default_title": "MyTube"
     },
     "background": {
       "service_worker": "background.js"
