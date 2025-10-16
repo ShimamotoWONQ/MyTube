@@ -1,0 +1,26 @@
+{
+    "name": "WebExtentionTemplate",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "For Chrome Extention",
+    "options_page": "index.html",
+    "permissions": [
+    
+    ],
+    "icons": {
+      "19": "img/logo/icon_coffee_19.png",
+      "48": "img/logo/icon_coffee_48.png",
+      "128": "img/logo/icon_coffee_128.png"
+    },
+    "action": {
+      "default_icon": {
+        "19": "img/logo/icon_coffee_19.png",
+        "48": "img/logo/icon_coffee_48.png",
+        "128": "img/logo/icon_coffee_128.png"
+      },
+      "default_title": "WebExtentionTemplate"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
